@@ -1,0 +1,28 @@
+<div class="my-3">
+    <button class="btn btn-primary" [routerLink]="['/dashboard', {outlets: {'dashboard-content': ['create-movie']}}]">Create Movie</button>
+</div>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">title</th>
+            <th scope="col">description</th>
+            <th scope="col">hall</th>
+            <th scope="col">show</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let movie of movies; index as index">
+            <td>{{movie.movieID}}</td>
+            <td>{{movie.title}}</td>
+            <td>{{movie.description}}</td>
+            <td>{{movie.cinemaHall?.cinemaHallID}}</td>
+            <td>{{movie.cinemaHall?.show?.showID}}</td>
+            <td>
+                <button class="btn btn-danger" (click)="delete(index)">Delete</button>
+                <button class="btn btn-warning">update</button>
+            </td>
+        </tr>
+
+    </tbody>
+</table>

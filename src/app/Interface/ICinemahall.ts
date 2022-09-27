@@ -3,11 +3,8 @@ import { IShow } from "./IShow";
 
 export interface ICinemahall
 {
-  cinemaHallID:number;
+  cinemaHallID:string;
   name:string,
-  cinemaSeats:ICinemaSeat,
-  show:IShow,
-  cinemaID:number,
-
-
+  cinemaSeats:ICinemaSeat[],
+  shows:IShow[],
 }

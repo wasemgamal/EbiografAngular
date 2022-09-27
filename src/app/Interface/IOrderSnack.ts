@@ -4,6 +4,4 @@ export interface IOrderSnack
     quantity:number,
     bookingID:number,
     productID:number
-
-
 }

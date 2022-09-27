@@ -4,6 +4,5 @@ export interface ICinemaSeat
   seatNumber:number,
   type:number,
   cinemaHallID:number
-
-
+  price: Number
 }

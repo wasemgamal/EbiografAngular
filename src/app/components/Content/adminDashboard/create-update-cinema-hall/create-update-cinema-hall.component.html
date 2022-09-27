@@ -1,0 +1,39 @@
+<h4 class="my-4">Create Cinema Hall</h4>
+<form [formGroup]="hallForm" style="margin-top: 1%;">
+    <div class="form-row">
+        <div class="form-group col">
+            <label>Name</label>
+            <input type="text" name="" class="form-control" formControlName="name">
+        </div>
+    </div>
+    <div class="form-row mb-4">
+        
+        <div class="col">
+            <ng-container formArrayName="cinemaSeats">
+                <ng-container *ngFor="let seatItem of cinemaSeatsControl.controls; index as index">
+                    <div class="form-row" [formGroupName]="index">
+                        <div class="form-group col-6">
+                            <label>Seat Number</label>
+                            <input type="number" name="" class="form-control" formControlName="seatNumber">
+                        </div>
+                        <div class="form-group col-6">
+                            <label>Price $</label>
+                            <input type="number" name="" class="form-control" formControlName="price">
+                        </div>
+                    </div>
+                </ng-container>
+            </ng-container>
+        </div>
+        <div class="col-auto">
+            <button class="btn btn-primary" (click)="pushNewSeat()">New Seat</button>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <button (click)="save()" class="btn btn-primary">
+            Save
+        </button>
+        <a [routerLink]="['/dashboard', {outlets: {'dashboard-content': ['cinemaHalls']}}]" class="btn btn-link">Cancel</a>
+    </div>
+
+</form>

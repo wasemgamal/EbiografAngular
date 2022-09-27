@@ -1,8 +1,10 @@
+import { ICinemahall } from 'src/app/Interface/ICinemahall';
+import { ICinemaSeat } from './ICinemaSeat';
 import { IGenre } from "./IGenre";
 
 export interface IMovie
 {
-    movieID:number,
+    movieID:string,
     title:string,
     imgLink:string,
     description:string,
@@ -12,7 +14,7 @@ export interface IMovie
     censorship:string,
     country:string,
     genres:IGenre,
-    trailerLink:string
-
-
+    trailerLink:string,
+    cinemaHall?: ICinemahall,
+    availableSeats?:ICinemaSeat[]
 }

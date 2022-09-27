@@ -28,11 +28,11 @@ export class RegisterComponent implements OnInit {
 
     this.RegisterForm = this.formBuilder
     .group({
-       firstname:['',Validators.required],
-       lastname:['',Validators.required],
-       username:['',Validators.required],
+       firstName:['',Validators.required],
+       lastName:['',Validators.required],
+       userName:['',Validators.required],
        password:['',passwordValidators],
-       emailaddress:['',Validators.required],
+       emailAddress:['',Validators.required],
        phone:[Number,Validators.required]
     });
   }

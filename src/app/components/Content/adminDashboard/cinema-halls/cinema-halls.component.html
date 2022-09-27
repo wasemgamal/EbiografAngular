@@ -1,0 +1,23 @@
+<div class="my-3">
+    <button class="btn btn-primary" [routerLink]="['/dashboard', {outlets: {'dashboard-content': ['create-cinema-hall']}}]">Create Cinemal Hall</button>
+</div>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">name</th>
+      <th scope="col">Seats Num</th>
+      <th scope="col">Shows Num</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let hall of halls">
+      <td>{{hall.cinemaHallID}}</td>
+      <td>{{hall.name}}</td>
+      <td>{{hall.cinemaSeats.length}}</td>
+      <td>{{hall.shows?.length??0}}</td>
+    </tr>
+
+  </tbody>
+</table>
+

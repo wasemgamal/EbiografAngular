@@ -1,0 +1,15 @@
+<app-navbar></app-navbar>
+<div class="profile-body" style="margin: 2%;">
+
+<nav>
+  <div class="nav nav-tabs" >
+    <button class="nav-link active" type="button" [routerLink]="['/dashboard', {outlets: {'dashboard-content': ['movies']}}]"  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >Movies</button>
+    <button class="nav-link active"  type="button" [routerLink]="['/dashboard', {outlets: {'dashboard-content': ['cinemaHalls']}}]">Cinema Halls</button>
+    <button class="nav-link active" type="button" [routerLink]="['/dashboard', {outlets: {'dashboard-content': ['users']}}]" >Users</button>
+  </div>
+</nav>
+
+<div>
+  <router-outlet name="dashboard-content"></router-outlet>
+</div>
+</div>

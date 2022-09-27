@@ -9,19 +9,20 @@ import { UserService } from 'src/app/Services/User.service';
   styleUrls: ['./myprofile.component.css']
 })
 export class MyprofileComponent implements OnInit {
-  user!:IUser;
-  displayForm!:FormGroup;
-  constructor(private userService:UserService,private formBuilder:FormBuilder) { }
+  user!: IUser;
+  displayForm!: FormGroup;
+  constructor(private userService: UserService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.user = this.userService.userValue;
+    console.log(this.user)
     this.displayForm = this.formBuilder.group({
-      firstName:['',Validators.required],
-       lastName:['',Validators.required],
-       userName:['',Validators.required],
-       emailAddress:['',Validators.required],
-       phone:['',Validators.required],
-       dateCreated:[Date,Validators.required]
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      userName: ['', Validators.required],
+      emailAddress: ['', Validators.required],
+      phone: ['', Validators.required],
+      dateCreated: [Date, Validators.required]
     });
 
     this.displayForm.patchValue(this.user);

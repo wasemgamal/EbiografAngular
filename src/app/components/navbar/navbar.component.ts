@@ -1,3 +1,4 @@
+import { ShoppingCartService } from './../../Services/ShoppingCart.service';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/Services/User.service';
 import { IUser } from 'src/app/Interface/IUser';
@@ -13,7 +14,7 @@ export class NavbarComponent implements OnInit {
   islogin = false;
   test!:string;
   username!:string;
-  constructor(private userService:UserService, private router:Router){
+  constructor(public userService:UserService, private router:Router, public shoppingCartService:ShoppingCartService){
     //gets this current user.
     this.userService.user.subscribe(x=> this.user = x);
 

@@ -7,6 +7,6 @@ export interface IBooking
   numberOfSeats:number,
   timeStamp:Date,
   status:number,
-  userID:number,
+  userID:number | string,
   showID:number
 }

@@ -9,10 +9,10 @@
   <div class="card-body">
     <form [formGroup]="RegisterForm" (ngSubmit)="onRegister()">
       <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" name="" class="form-control" formControlName="username" [ngClass]="{'is-invalid':submitted && userForm.username.errors}">
-        <div *ngIf="submitted && userForm.username.errors" class="invalid-feedback">
-            <div *ngIf="userForm.username.errors.required">
+        <label for="userName">Username</label>
+        <input type="text" name="" class="form-control" formControlName="userName" [ngClass]="{'is-invalid':submitted && userForm.userName.errors}">
+        <div *ngIf="submitted && userForm.userName.errors" class="invalid-feedback">
+            <div *ngIf="userForm.userName.errors.required">
               Username is requiured.
             </div>
         </div>
@@ -31,20 +31,20 @@
       </div>
 
       <div class="form-group">
-        <label for="firstname">Firstname</label>
-        <input type="text" name="" class="form-control" formControlName="firstname" [ngClass]="{'is-invalid':submitted && userForm.firstname.errors}">
-        <div *ngIf="submitted && userForm.firstname.errors" class="invalid-feedback">
-            <div *ngIf="userForm.firstname.errors.required">
+        <label for="firstName">Firstname</label>
+        <input type="text" name="" class="form-control" formControlName="firstName" [ngClass]="{'is-invalid':submitted && userForm.firstName.errors}">
+        <div *ngIf="submitted && userForm.firstName.errors" class="invalid-feedback">
+            <div *ngIf="userForm.firstName.errors.required">
               Firstname is requiured.
             </div>
         </div>
       </div>
 
       <div class="form-group">
-        <label for="lastname">Lastname</label>
-        <input type="text" name="" class="form-control" formControlName="lastname" [ngClass]="{'is-invalid':submitted && userForm.lastname.errors}">
-        <div *ngIf="submitted && userForm.lastname.errors" class="invalid-feedback">
-            <div *ngIf="userForm.lastname.errors.required">
+        <label for="lastName">Lastname</label>
+        <input type="text" name="" class="form-control" formControlName="lastName" [ngClass]="{'is-invalid':submitted && userForm.lastName.errors}">
+        <div *ngIf="submitted && userForm.lastName.errors" class="invalid-feedback">
+            <div *ngIf="userForm.lastName.errors.required">
               Lastname is requiured.
             </div>
         </div>
@@ -52,10 +52,10 @@
 
 
       <div class="form-group">
-        <label for="emailaddress">Emailaddress</label>
-        <input type="email" name="" class="form-control" formControlName="emailaddress" [ngClass]="{'is-invalid':submitted && userForm.emailaddress.errors}">
-        <div *ngIf="submitted && userForm.emailaddress.errors" class="invalid-feedback">
-            <div *ngIf="userForm.emailaddress.errors.required">
+        <label for="emailAddress">Emailaddress</label>
+        <input type="email" name="" class="form-control" formControlName="emailAddress" [ngClass]="{'is-invalid':submitted && userForm.emailAddress.errors}">
+        <div *ngIf="submitted && userForm.emailAddress.errors" class="invalid-feedback">
+            <div *ngIf="userForm.emailAddress.errors.required">
               Emailaddress is requiured.
             </div>
         </div>

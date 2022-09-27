@@ -1,0 +1,25 @@
+<br>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">username</th>
+      <th scope="col">phone</th>
+      <th scope="col">email</th>
+      <th scope="col">action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users; index as index">
+      <td>{{user.userID}}</td>
+      <td>{{user.userName}}</td>
+      <td>{{user.phone}}</td>
+      <td>{{user.emailAddress}}</td>
+      <td>
+        <button class="btn btn-danger" *ngIf="user.role != 'admin'" (click)="delete(index)">Delete</button>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+

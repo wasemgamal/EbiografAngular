@@ -15,14 +15,10 @@ export class MoviesComponent implements OnInit {
   MoviesDisplay: any = [];
   ngOnInit(): void {
     this.loadMovies();
-
   }
   loadMovies() {
     this.movieContext.GetMovies().subscribe((movieResult) => {
-      console.log(movieResult);
-
       this.MoviesDisplay = movieResult;
-
     });
   }
   convertMinuteToHour(minute:number){
