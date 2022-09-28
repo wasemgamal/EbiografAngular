@@ -12,13 +12,14 @@ import { ShowService } from 'src/app/Services/Show.service';
 import { UserService } from 'src/app/Services/User.service';
 
 @Component({
-  selector: 'app-movie-details',
-  templateUrl: './movie-details.component.html',
-  styleUrls: ['./movie-details.component.css']
+  selector: 'app-show-details',
+  templateUrl: './show-details.component.html',
+  styleUrls: ['./show-details.component.css']
 })
-export class MovieDetailsComponent implements OnInit {
-  MovieId!: number;
-  Movie!: Partial<IMovie>;
+export class ShowDetailsComponent implements OnInit {
+
+  id!: string;
+  show!: Partial<IShow>;
   selected!: Date;
   week = new Array(7).fill(new Date());
   shows: any = [];
@@ -31,19 +32,18 @@ export class MovieDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.rouite.params.subscribe(params => this.MovieId = params['id']);
-    this.movieDetails(this.MovieId);
+    this.rouite.params.subscribe(params => this.id = params['id']);
+    this.showDetails(this.id);
     this.getNextWeek();
     // this.getShows();
     this.selected = new Date();
 
   }
 
-  movieDetails(id: number) {
-    this.movieContext.getMovieById(id).subscribe((movieResult) => {
-      this.Movie = movieResult;
+  showDetails(id: string) {
+    this.showContext.getShowById(id).subscribe((res) => {
+      this.show = res;
     });
-
   }
 
   getNextWeek() {
@@ -57,4 +57,5 @@ export class MovieDetailsComponent implements OnInit {
   availablilitySeatClass(item:ICinemaSeat, seats:ICinemaSeat[] | undefined){
     return seats?.some(seat=> seat.cinemaSeatID === item.cinemaSeatID) ? 'badge-secondary':'badge-warning';
   }
+
 }

@@ -31,9 +31,9 @@ export class LocalStorageService {
     this.setLocalKey(key, localMovies)
   }
 
-  updateItemInLocalList(id:string | number, key:string, newValue:any){
+  updateItemInLocalList(id:string | number, IDKey:string, key:string, newValue:any){
     let list = this.getLocalList(key);
-    const INDEX = this.getLocalList(key).findIndex(item=> item.id === id);
+    const INDEX = list.findIndex(item=> item[IDKey] === id);
     list[INDEX] = newValue;
     this.setLocalKey(key, list);
   }

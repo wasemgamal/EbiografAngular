@@ -11,10 +11,7 @@ export interface IMovie
     duration:number,
     language:number,
     releaseDate:Date,
-    censorship:string,
-    country:string,
-    genres:IGenre,
     trailerLink:string,
-    cinemaHall?: ICinemahall,
-    availableSeats?:ICinemaSeat[]
+    // cinemaHall?: ICinemahall,
+    // availableSeats?:ICinemaSeat[]
 }

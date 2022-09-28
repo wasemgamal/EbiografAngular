@@ -48,9 +48,9 @@ export class MyHistoryComponent implements OnInit {
 
   getShow(id:number) {
     var moviename = "";
-    this.showContext.getShowByShowID(id).subscribe((showResult) => {
+    this.showContext.getShowById(id).subscribe((showResult) => {
       this.Show = showResult;
-      moviename= this.getMovie(showResult.movieID);
+      moviename= this.getMovie(showResult.movie.movieID);
     }
     );
     console.log(moviename)
@@ -66,7 +66,7 @@ getBookings(){
   })
 }
 
-  getMovie(movieID:number) {
+  getMovie(movieID:string) {
     var moviename= "";
     this.movieContext.getMovieById(movieID).subscribe((movieResult) => {
       this.Movie = movieResult;

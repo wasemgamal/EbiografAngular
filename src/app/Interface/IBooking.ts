@@ -8,5 +8,5 @@ export interface IBooking
   timeStamp:Date,
   status:number,
   userID:number | string,
-  showID:number
+  showID:string
 }

@@ -1,1 +1,47 @@
-<p>create-update-movie works!</p>
+<h4 class="my-4">{{this.id ? 'Update Movie':'Create Movie'}}</h4>
+<form [formGroup]="movieForm" style="margin-top: 1%;">
+    <div class="form-row">
+        <div class="form-group col">
+            <label>title</label>
+            <input type="text" name="" class="form-control" formControlName="title">
+        </div>
+        <div class="form-group col">
+            <label>imgLink</label>
+            <input type="text" name="" class="form-control" formControlName="imgLink">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col">
+            <label>description</label>
+            <input type="text" name="" class="form-control" formControlName="description">
+        </div>
+        <div class="form-group col">
+            <label>duration (minutes)</label>
+            <input type="number" name="" class="form-control" formControlName="duration">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col">
+            <label>language</label>
+            <input type="text" name="" class="form-control" formControlName="language">
+        </div>
+        <div class="form-group col">
+            <label>releaseDate</label>
+            <input type="date" name="" class="form-control" formControlName="releaseDate">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col">
+            <label>trailerLink</label>
+            <input type="text" name="" class="form-control" formControlName="trailerLink">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <button (click)="save()" class="btn btn-primary">
+            Save
+        </button>
+        <a [routerLink]="['/dashboard', {outlets: {'dashboard-content': ['movies']}}]" class="btn btn-link">Cancel</a>
+    </div>
+
+</form>

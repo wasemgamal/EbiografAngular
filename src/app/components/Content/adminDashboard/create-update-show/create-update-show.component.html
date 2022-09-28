@@ -1,0 +1,39 @@
+<h4 class="my-4">{{this.id ? 'Update Show':'Create Show'}}</h4>
+<form [formGroup]="showForm" style="margin-top: 1%;">
+    <div class="form-row">
+        <div class="form-group col">
+            <label>date</label>
+            <input type="date" name="" class="form-control" formControlName="date">
+        </div>
+        <div class="form-group col">
+            <label>startTime</label>
+            <input type="time" name="" class="form-control" formControlName="startTime">
+        </div>
+        <div class="form-group col">
+            <label>endTime</label>
+            <input type="time" name="" class="form-control" formControlName="endTime">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col" formGroupName="movie">
+            <label>movie</label>
+            <select class="form-control" formControlName="movieID">
+                <option *ngFor="let movie of movies" [value]="movie.movieID"> {{movie.title}} </option>
+            </select>
+        </div>
+        <div class="form-group col" formGroupName="cinemaHall">
+            <label>Hall</label>
+            <select class="form-control" formControlName="cinemaHallID">
+                <option *ngFor="let hall of halls" [value]="hall.cinemaHallID"> {{hall.name}} </option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <button (click)="save()" class="btn btn-primary">
+            Save
+        </button>
+        <a [routerLink]="['/dashboard', {outlets: {'dashboard-content': ['shows']}}]" class="btn btn-link">Cancel</a>
+    </div>
+
+</form>

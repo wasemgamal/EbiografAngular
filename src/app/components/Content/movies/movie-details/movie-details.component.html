@@ -10,11 +10,11 @@
       <div class="card-body">
         <h1 class="card-title">{{Movie.title}}</h1>
         <h4 class="card-text">{{Movie.description}}</h4>
-        <h3 class="card-text" class="text-muted">Genres : {{Movie.genres?.GenreName}}</h3>
-        <h3 class="card-text" class="text-muted">Hall Name : {{Movie.cinemaHall?.name}}</h3>
+        <!-- <h3 class="card-text" class="text-muted">Genres : {{Movie.genres?.GenreName}}</h3> -->
+        <!-- <h3 class="card-text" class="text-muted">Hall Name : {{Movie.cinemaHall?.name}}</h3> -->
         <h3 class="card-text" class="text-muted">Duration : <b class="text-info">{{generalService.convertMinuteToHour(Movie.duration??0)}}</b></h3>
-        <h3 class="card-text" class="text-muted">Show Time : {{Movie.cinemaHall?.show?.date + ' ' + Movie.cinemaHall?.show?.startTime}}</h3>
-        <div class="d-flex justify-content-start align-items-center">
+        <!-- <h3 class="card-text" class="text-muted">Show Time : {{Movie.cinemaHall?.show?.date + ' ' + Movie.cinemaHall?.show?.startTime}}</h3> -->
+        <!-- <div class="d-flex justify-content-start align-items-center">
           <span>All Seats: </span>
           <div class="ml-2">
             <span class="badge badge-primary mr-2 text-center" [class]="availablilitySeatClass(item, Movie.availableSeats)" *ngFor="let item of Movie.cinemaHall?.cinemaSeats"> 
@@ -23,7 +23,7 @@
             </span>
           </div>
         </div>
-        <small> All <b class="text-warning">Yellow</b> colored seats are reserved and all <b class="text-secondary">Grey</b> colored are available </small>
+        <small> All <b class="text-warning">Yellow</b> colored seats are reserved and all <b class="text-secondary">Grey</b> colored are available </small> -->
         
       </div>
     </div>

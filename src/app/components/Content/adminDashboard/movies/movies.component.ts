@@ -14,10 +14,10 @@ export class DashboardMoviesComponent implements OnInit {
   constructor(public moviesService: MovieService) { }
 
   ngOnInit(): void {
-    this.getHalls();
+    this.getMovies();
   }
 
-  getHalls(){
+  getMovies(){
     this.moviesService.GetMovies().pipe(first()).subscribe(res=>{
       this.movies = res;
     },err=>{

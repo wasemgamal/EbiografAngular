@@ -7,7 +7,8 @@
       <th scope="col">ID</th>
       <th scope="col">name</th>
       <th scope="col">Seats Num</th>
-      <th scope="col">Shows Num</th>
+      <!-- <th scope="col">Shows Num</th> -->
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -15,7 +16,10 @@
       <td>{{hall.cinemaHallID}}</td>
       <td>{{hall.name}}</td>
       <td>{{hall.cinemaSeats.length}}</td>
-      <td>{{hall.shows?.length??0}}</td>
+      <!-- <td>{{hall.shows?.length??0}}</td> -->
+      <td>
+        <button class="btn btn-warning" [routerLink]="['/dashboard', {outlets: {'dashboard-content': ['update-cinema-hall', hall.cinemaHallID]}}]">update</button>
+      </td>
     </tr>
 
   </tbody>

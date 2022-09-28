@@ -1,11 +1,8 @@
 import { GeneralService } from './General.service';
 import { ICinemahall } from 'src/app/Interface/ICinemahall';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IMovie } from '../Interface/IMovie';
 import { Router, ActivatedRoute } from '@angular/router';
-import { environment } from 'src/environments/environment';
-import { map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { LocalStorageService } from './LocalStorage.service';
 @Injectable({
@@ -35,8 +32,11 @@ export class CinemaHallService {
   createCinemaHall(hall: ICinemahall){
     const HALL : ICinemahall = {
       ...hall,
-      shows: [],
     }
     this.localService.createItemInLocalList(this.localKey, HALL)
+  }
+
+  update(id: number|string, hall: ICinemahall) {
+    return of(this.localService.updateItemInLocalList(id, 'cinemaHallID', this.localKey, hall))
   }
 }

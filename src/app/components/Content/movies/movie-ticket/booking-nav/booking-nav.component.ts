@@ -41,7 +41,7 @@ export class BookingNavComponent implements OnInit {
   }
 
   getShow(){
-    this.showContext.getShowByShowID(this.ShowID).subscribe((showResult)=>
+    this.showContext.getShowById(this.ShowID).subscribe((showResult)=>
     {
       this.Show = showResult;
     }

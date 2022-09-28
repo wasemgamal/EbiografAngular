@@ -72,7 +72,7 @@ export class MovieTicketComponent implements OnInit {
     this.totalTicketPrice=0;
    this.rouite.params.subscribe(params=> {this.ShowID = params['showID']; this.MovieID = params['movieID']});
    this.movieDetails(this.MovieID);
-   this.getShow();
+  //  this.getShow();
    this.checkIfselectedLocalStorage()
   }
   movieDetails(id:number){
@@ -86,15 +86,15 @@ export class MovieTicketComponent implements OnInit {
       return productResult;
     })
   }
-  getShow(){
-    this.showContext.getShowByShowID(this.ShowID).subscribe((showResult)=>
-    {
-      this.Show = showResult;
-      this.getCinemaHall(showResult.cinemaHallID);
-      this.getShowSeats(showResult.showID);
+  // getShow(){
+  //   this.showContext.getShowByShowID(this.ShowID).subscribe((showResult)=>
+  //   {
+  //     this.Show = showResult;
+  //     this.getCinemaHall(showResult.cinemaHallID);
+  //     this.getShowSeats(showResult.showID);
 
-    })
-  }
+  //   })
+  // }
   getCinemaHall(id:number){
     this.cinemaHallContext.getCinemaHallById(id).subscribe((CinemaHallResult)=>
     {

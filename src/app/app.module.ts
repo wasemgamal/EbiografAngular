@@ -37,6 +37,10 @@ import { UsersComponent } from './components/Content/adminDashboard/users/users.
 import { DashboardHomeComponent } from './components/Content/adminDashboard/home/home.component';
 import { CreateUpdateCinemaHallComponent } from './components/Content/adminDashboard/create-update-cinema-hall/create-update-cinema-hall.component';
 import { CreateUpdateMovieComponent } from './components/Content/adminDashboard/create-update-movie/create-update-movie.component';
+import { CreateUpdateShowComponent } from './components/Content/adminDashboard/create-update-show/create-update-show.component';
+import { DashboardShowsComponent } from './components/Content/adminDashboard/shows/shows.component';
+import { MainShowsComponent } from './components/Content/main-shows/main-shows.component';
+import { ShowDetailsComponent } from './components/Content/main-shows/show-details/show-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,6 +64,10 @@ import { CreateUpdateMovieComponent } from './components/Content/adminDashboard/
     DashboardHomeComponent,
     CreateUpdateCinemaHallComponent,
     CreateUpdateMovieComponent,
+    CreateUpdateShowComponent,
+    DashboardShowsComponent,
+    MainShowsComponent,
+    ShowDetailsComponent,
   ],
   imports: [
     BrowserModule,

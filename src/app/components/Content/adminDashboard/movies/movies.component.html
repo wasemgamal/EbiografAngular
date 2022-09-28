@@ -7,8 +7,9 @@
             <th scope="col">ID</th>
             <th scope="col">title</th>
             <th scope="col">description</th>
-            <th scope="col">hall</th>
-            <th scope="col">show</th>
+            <!-- <th scope="col">hall</th> -->
+            <!-- <th scope="col">show</th> -->
+            <th scope="col"></th>
         </tr>
     </thead>
     <tbody>
@@ -16,11 +17,11 @@
             <td>{{movie.movieID}}</td>
             <td>{{movie.title}}</td>
             <td>{{movie.description}}</td>
-            <td>{{movie.cinemaHall?.cinemaHallID}}</td>
-            <td>{{movie.cinemaHall?.show?.showID}}</td>
+            <!-- <td>{{movie.cinemaHall?.cinemaHallID}}</td> -->
+            <!-- <td>{{movie.cinemaHall?.show?.showID}}</td> -->
             <td>
                 <button class="btn btn-danger" (click)="delete(index)">Delete</button>
-                <button class="btn btn-warning">update</button>
+                <button class="btn btn-warning" [routerLink]="['/dashboard', {outlets: {'dashboard-content': ['update-movie', movie.movieID]}}]">update</button>
             </td>
         </tr>
 

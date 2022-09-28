@@ -6,18 +6,19 @@ import { IMovie } from 'src/app/Interface/IMovie';
 import { MovieService } from 'src/app/Services/Movie.service';
 
 @Component({
-  selector: 'app-movies',
-  templateUrl: './movies.component.html',
-  styleUrls: ['./movies.component.css']
+  selector: 'app-main-shows',
+  templateUrl: './main-shows.component.html',
+  styleUrls: ['./main-shows.component.css']
 })
-export class MoviesComponent implements OnInit {
+export class MainShowsComponent implements OnInit {
+
   movieYear!: string;
   math = Math;
   constructor(private movieContext: MovieService, private showService: ShowService) { }
   MoviesDisplay: any = [];
   ShowsDisplay: IShow[] = [];
   ngOnInit(): void {
-    this.loadMovies();
+    this.loadShows();
   }
   loadMovies() {
     this.movieContext.GetMovies().subscribe((movieResult) => {
@@ -37,4 +38,3 @@ export class MoviesComponent implements OnInit {
   }
 
 }
-

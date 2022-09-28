@@ -18,7 +18,10 @@ import { MovieTicketComponent } from './components/Content/movies/movie-ticket/m
 import { BookingNavComponent } from './components/Content/movies/movie-ticket/booking-nav/booking-nav.component';
 import { TicketComponent } from './components/Content/movies/movie-ticket/bookingNav/ticket/ticket.component';
 import { UsersComponent } from './components/Content/adminDashboard/users/users.component';
+import { DashboardShowsComponent } from './components/Content/adminDashboard/shows/shows.component';
 import { CreateUpdateMovieComponent } from './components/Content/adminDashboard/create-update-movie/create-update-movie.component';
+import { CreateUpdateShowComponent } from './components/Content/adminDashboard/create-update-show/create-update-show.component';
+import { ShowDetailsComponent } from './components/Content/main-shows/show-details/show-details.component';
 const routes: Routes = [
 {path:'home', component:HomeComponent},
 {path:'',redirectTo: 'home', pathMatch:'full'},
@@ -33,6 +36,7 @@ const routes: Routes = [
 {path:'dashboard',component:DashboardHomeComponent,canActivate:[AuthGuard, AdminGuard],children:[
 
     {path:'movies',component:DashboardMoviesComponent,outlet:'dashboard-content'},
+    {path:'shows',component:DashboardShowsComponent,outlet:'dashboard-content'},
     {path:'cinemaHalls',component:CinemaHallsComponent,outlet:'dashboard-content'},
     {path:'users',component:UsersComponent,outlet:'dashboard-content'},
     {path:'my-history',component:MyHistoryComponent,outlet:'dashboard-content'},
@@ -40,10 +44,13 @@ const routes: Routes = [
     {path:'update-cinema-hall/:id',component:CreateUpdateCinemaHallComponent,outlet:'dashboard-content',},
     {path:'create-movie',component:CreateUpdateMovieComponent,outlet:'dashboard-content'},
     {path:'update-movie/:id',component:CreateUpdateMovieComponent,outlet:'dashboard-content'},
+    {path:'create-show',component:CreateUpdateShowComponent,outlet:'dashboard-content'},
+    {path:'update-show/:id',component:CreateUpdateShowComponent,outlet:'dashboard-content'},
     {path:'',redirectTo:'/dashboard/(dashboard-content:movies)',pathMatch:'full'}
 
 ]},
 {path: 'movie/:id',component:MovieDetailsComponent},
+{path: 'show/:id',component:ShowDetailsComponent},
 {path: 'movie/:movieID/show/:showID',component:MovieTicketComponent},
 {path: 'movie/:movieID/show/:showID/booking/:bookingID/ticket/:ticketID',component:BookingNavComponent},
 {path: 'movieticket/:paymentID',component:TicketComponent}

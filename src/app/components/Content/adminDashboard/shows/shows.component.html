@@ -1,0 +1,29 @@
+<div class="my-3">
+    <button class="btn btn-primary" [routerLink]="['/dashboard', {outlets: {'dashboard-content': ['create-show']}}]">Create Show</button>
+</div>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">title</th>
+            <th scope="col">Hall</th>
+            <th scope="col">Available Seats Num</th>
+            <!-- <th scope="col">hall</th> -->
+            <!-- <th scope="col">show</th> -->
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let show of shows; index as index">
+            <td>{{show.showID}}</td>
+            <td>{{show.movie.title}}</td>
+            <td>{{show.cinemaHall?.name}}</td>
+            <td>{{show.availableSeats?.length}}</td>
+            <td>
+                <button class="btn btn-danger" (click)="delete(index)">Delete</button>
+                <button class="btn btn-warning" [routerLink]="['/dashboard', {outlets: {'dashboard-content': ['update-show', show.showID]}}]">update</button>
+            </td>
+        </tr>
+
+    </tbody>
+</table>

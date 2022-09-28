@@ -121,7 +121,7 @@ export class UserService {
     //     }
     //     return x;
     //   }))
-    return of(this.localService.updateItemInLocalList(id, this.localKeyUsers, user))
+    return of(this.localService.updateItemInLocalList(id, 'userID', this.localKeyUsers, user))
   }
 
   delete(index: number) {

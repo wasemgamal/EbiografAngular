@@ -1,0 +1,30 @@
+<app-navbar></app-navbar>
+
+
+<div class="card mb-4" style="max-width: 1540px;" class="col-md-4 offset-md-2 mt-5" *ngIf="show">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{show?.movie?.imgLink}}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h1 class="card-title">{{show?.movie?.title}}</h1>
+        <h4 class="card-text">{{show?.movie?.description}}</h4>
+        <h3 class="card-text" class="text-muted">Hall Name : {{show?.cinemaHall?.name}}</h3>
+        <h3 class="card-text" class="text-muted">Duration : <b class="text-info">{{generalService.convertMinuteToHour(show?.movie?.duration??0)}}</b></h3>
+        <h3 class="card-text" class="text-muted">Show Time : {{show?.date + ' ' + show?.startTime}}</h3>
+        <div class="d-flex justify-content-start align-items-center">
+          <span>All Seats: </span>
+          <div class="ml-2">
+            <span class="badge badge-primary mr-2 text-center" [class]="availablilitySeatClass(item, show?.availableSeats)" *ngFor="let item of show?.cinemaHall?.cinemaSeats"> 
+              <span class="mb-2 d-inline-block">{{item.seatNumber}}</span>  <br/>
+              <span>${{item.price}}</span>
+            </span>
+          </div>
+        </div>
+        <small> All <b class="text-warning">Yellow</b> colored seats are reserved and all <b class="text-secondary">Grey</b> colored are available </small>
+        
+      </div>
+    </div>
+  </div>
+</div>

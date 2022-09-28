@@ -3,7 +3,8 @@ import { GeneralService } from 'src/app/Services/General.service';
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { CinemaHallService } from 'src/app/Services/CinemaHall.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-create-update-cinema-hall',
@@ -12,7 +13,8 @@ import { Router } from '@angular/router';
 })
 export class CreateUpdateCinemaHallComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder, private generalService: GeneralService, public hallsService: CinemaHallService, private router: Router) { }
+  public id!:string;
+  constructor(private route: ActivatedRoute,private formBuilder: FormBuilder, private generalService: GeneralService, public hallsService: CinemaHallService, private router: Router) { }
 
 
   // cinema seat formGroup
@@ -35,15 +37,26 @@ export class CreateUpdateCinemaHallComponent implements OnInit {
   });
 
   ngOnInit(): void {
+    this.id = this.route.snapshot.params['id']
+    if(this.id){
+      this.getHall(this.id)
+    }
   }
 
-  pushNewSeat(){
-    this.cinemaSeatsControl.push(this.cinemaSeatGroup())
+  pushNewSeat(data?:ICinemaSeat){
+    this.cinemaSeatsControl.push(this.cinemaSeatGroup(data))
   }
 
   save(){
-    this.hallsService.createCinemaHall(this.hallForm.value);
+    this.id ? this.hallsService.update(this.id,this.hallForm.value) : this.hallsService.createCinemaHall(this.hallForm.value);
     this.router.navigate(['/dashboard', {outlets: {'dashboard-content': ['cinemaHalls']}}])
+  }
+
+  getHall(id:string){
+    this.hallsService.getCinemaHallById(id).pipe(first()).subscribe(res=>{
+      this.hallForm.patchValue(res);
+      res.cinemaSeats.map(item=> this.pushNewSeat(item));
+    })
   }
 
 }

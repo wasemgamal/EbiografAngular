@@ -37,12 +37,15 @@ export class MovieService {
     const MOVIE: IMovie = {
       ...movie,
       movieID: this.generalService.generateRandomID(),
-      availableSeats: movie.cinemaHall?.cinemaSeats
     }
     this.localService.createItemInLocalList(this.localKey, MOVIE)
   }
 
   delete(index: number) {
     return of(this.localService.removeItemInLocalListByIndex(index, this.localKey))
+  }
+
+  update(id: number|string, movie: IMovie) {
+    return of(this.localService.updateItemInLocalList(id, 'movieID', this.localKey, movie))
   }
 }
